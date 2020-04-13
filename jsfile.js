@@ -23,12 +23,13 @@ title.style.textAlign = "center"
 title.style.marginTop= 30;
 
 
+
 //div container
 const container = document.querySelector("#container")
 container.style.display= "grid"
 container.style.backgroundColor="gray"
 container.style.justifyContent= "center"
-container.style.gridTemplateColumns= "10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px "
+container.style.gridTemplateColumns= "repeat(16, auto)";
 
 
 //OneSide number of squares
@@ -45,8 +46,8 @@ function creatingDivs(i){
             div.style.backgroundColor="#FFF"
             div.onmouseover = function() {mouseOver(i)};
             //div.onmouseout = function() {mouseOff(i)};  IN CASE IF YOU WANT NOT LEAVE TRACE
-            div.style.height=10;
-            div.style.width=10;
+            div.style.height=40;
+            div.style.width=40;
             return div
 }
 
@@ -66,16 +67,28 @@ function mouseOff(i){
     document.getElementById("div"+i).style.background = "#FFF"};
 
 //Click en ChangeSize Button
-let asking = 0
+document.getElementById("button").addEventListener("click", gettingNewGrid);
 
-document.getElementById("button").addEventListener("click", function(){
-    a=0;
-    asking = prompt("How many square per side do you want?", "16");
-    if(asking==NaN||asking==null){
-        asking = prompt("Please enter a valid positive number", "16");
+let size=0;
+
+function gettingNewGrid() {
+    let asking = prompt("How many squares per size do you want?", 16);
+            if (asking == "" || isNaN(asking)){
+                alert("Hit Change Size button and make a new canvas");
+            } 
+            else{divs.forEach((divs) => {container.innerHTML =""});
+                alert("Your new canvas will have "+asking+" squares per side. Nice!")
+                size = asking
+                console.log(asking);
+                console.log(size);
+                makeNewDivs(size);
+                }}
+
+function makeNewDivs(size){
+    const divs2 = (Array(size*size).fill("creatingDivs()"));
+    for(let i=0;i<size*size;i++){
+        divs2[i]=creatingDivs(i)
+       }
+    console.log(divs2);
+    divs2.forEach((divs) => {container.appendChild(divs)})
     }
-        else {;
-            a=asking;
-            return asking};
-})
-console.log(asking);
