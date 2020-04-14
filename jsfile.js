@@ -29,7 +29,8 @@ const container = document.querySelector("#container")
 container.style.display= "grid"
 container.style.backgroundColor="gray"
 container.style.justifyContent= "center"
-container.style.gridTemplateColumns= "repeat(16, auto)";
+
+container.style.gridTemplateColumns= "repeat(16, 30px)";
 
 
 //OneSide number of squares
@@ -46,8 +47,8 @@ function creatingDivs(i){
             div.style.backgroundColor="#FFF"
             div.onmouseover = function() {mouseOver(i)};
             //div.onmouseout = function() {mouseOff(i)};  IN CASE IF YOU WANT NOT LEAVE TRACE
-            div.style.height=40;
-            div.style.width=40;
+            div.style.height=30;
+            div.style.width=30;
             return div
 }
 
