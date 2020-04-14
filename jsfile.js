@@ -1,12 +1,13 @@
 //Setting bigDiv
 const bigDiv = document.querySelector("#bigDiv")
 bigDiv.style.width = "100%";
+bigDiv.style.fontFamily = "monospace"
 
 //ccontainer
 const ccontainer = document.querySelector("#ccontainer")
 ccontainer.style.display="grid";
 ccontainer.style.justifyContent="center"
-ccontainer.style.backgroundColor="#0F9";
+ccontainer.style.backgroundImage="linear-gradient(90deg, white, yellow, yellow, white)";
 
 
 
